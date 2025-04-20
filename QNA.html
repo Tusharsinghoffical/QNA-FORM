@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask a Web Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #000;
+      color: #00ff99;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: radial-gradient(circle at center, #001f1f 0%, #000 100%);
+      overflow: hidden;
+    }
+
+    .terminal {
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      background-color: #0a0a0a;
+      border: 2px solid #00ff99;
+      border-radius: 10px;
+      box-shadow: 0 0 30px #00ff99;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { box-shadow: 0 0 30px #00ff99; }
+      50% { box-shadow: 0 0 10px #00ff99; }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      text-shadow: 0 0 5px #00ff99;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #00ff99;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      background: #000;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #33ffcc;
+      box-shadow: 0 0 10px #33ffcc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00ff99;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #33ffcc;
+      box-shadow: 0 0 10px #33ffcc;
+    }
+
+    /* Terminal blinking cursor effect */
+    .blink {
+      display: inline-block;
+      width: 10px;
+      background-color: #00ff99;
+      margin-left: 3px;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .terminal {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <h1>Ask a Web Designer<span class="blink"></span></h1>
+    <form action="https://formspree.io/f/xjkyndab" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Neo" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="neo@matrix.com" />
+
+      <label for="message">Your Question</label>
+      <textarea id="message" name="message" rows="5" required placeholder="What's the secret to clean UI?"></textarea>
+
+      <button type="submit">SEND MESSAGE</button>
+    </form>
+  </div>
+</body>
+</html>
